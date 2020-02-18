@@ -13,4 +13,26 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/:id', (req, res) => {
+  Cars.getById(req.params.id)
+    .then(car => {
+      res.status(200).json(car);
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json({ error: "Could not retieve that car" })
+    })
+})
+
+router.post('/', (req, res) => {
+  Cars.insert(req.body)
+  .then(car => {
+    res.status(201).json(car);
+  })
+  .catch(err => {
+    console.log(err)
+    res.status(500).json({ error: "Could not add car" })
+  })
+})
+
 module.exports = router;
