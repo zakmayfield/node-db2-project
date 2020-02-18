@@ -12,6 +12,14 @@ exports.seed = function(knex) {
           mileage: 85000,
           transmission: "Automatic",
           titleStatus: "Clean"
+        },
+        {
+          vin: "5ETE477ET78987EG8TR6",
+          make: "Tesla",
+          modle: "Cyber Truck",
+          mileage: 4700,
+          transmission: "Automatic",
+          titleStatus: "Clean"
         }
       ]);
     });
