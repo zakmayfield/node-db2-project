@@ -35,4 +35,26 @@ router.post('/', (req, res) => {
   })
 })
 
+router.put('/:id', (req, res) => {
+  Cars.update(req.params.id, req.body)
+    .then(updatedCount => {
+      res.status(201).json(updatedCount);
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json({ error: "Could not update car" })
+    })
+})
+
+router.delete('/:id', (req, res) => {
+  Cars.remove(req.params.id)
+    .then(removedCount => {
+      res.status(201).json(removedCount);
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json({ error: "Could not remove the car" })
+    })
+})
+
 module.exports = router;
